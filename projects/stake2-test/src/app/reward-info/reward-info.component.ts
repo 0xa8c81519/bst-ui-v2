@@ -9,9 +9,16 @@ import { BootService } from '../services/boot.service';
 })
 export class RewardInfoComponent implements OnInit {
 
+    rewardAPY: BigNumber = new BigNumber(0);
+
     constructor(public boot: BootService) { }
 
     ngOnInit(): void {
+        this.boot.initContractsCompleted.subscribe(() => {
+            this.getRewardAPY().then(rApy => {
+                this.rewardAPY = rApy.multipliedBy(100);
+            });
+        });
     }
 
     allocationPercent() {
@@ -46,5 +53,43 @@ export class RewardInfoComponent implements OnInit {
             interestRate = this.boot.poolInfo.volume.multipliedBy(this.boot.poolInfo.fee).multipliedBy(new BigNumber(1).minus(this.boot.poolInfo.adminFee)).div(this.boot.poolInfo.totalSupply);
         }
         return new BigNumber(1).plus(interestRate.div(365)).exponentiatedBy(356).minus(1).multipliedBy(100).toFormat(4, 1);
+    }
+
+    getRewardAPY(): Promise<BigNumber> {
+        let BSTPrice = 0.03;// 0.03 usd / bst
+        let denominator = new BigNumber(10).exponentiatedBy(18);
+        return this.boot.poolContract.balanceOf(this.boot.proxyContract.address).then(lpStakingStr => {
+            let totalLpStaking = new BigNumber(lpStakingStr.toString()).div(denominator);
+            if (totalLpStaking.comparedTo(0) > 0) {
+                return this.boot.web3.getBlockNumber().then(blockNumber => {
+                    return this.boot.minterContract.startBlock().then(startBlockStr => {
+                        let startBlock = new BigNumber(startBlockStr.toString());
+                        if (new BigNumber(blockNumber).comparedTo(startBlock) > 0) {
+                            let blocks = new BigNumber(blockNumber).minus(startBlock);
+                            return this.boot.minterContract.tokenPerBlock().then(tpb => {
+                                let tokenPerBlock = new BigNumber(tpb.toString()).div(denominator);
+                                return this.boot.minterContract.phase().then(phase => {
+                                    phase = Number(phase);
+                                    tokenPerBlock = tokenPerBlock.div(new BigNumber('1189207115002721024').div(denominator).exponentiatedBy(phase));
+                                    let pArr = new Array();
+                                    pArr.push(this.boot.minterContract.proxyInfo(this.boot.proxyContract.address));
+                                    pArr.push(this.boot.minterContract.totalAllocPoint());
+                                    return Promise.all(pArr).then(arr => {
+                                        let percent = new BigNumber(arr[0].allocPoint.toString()).div(new BigNumber(arr[1].toString()));
+                                        let rewardAmt = blocks.multipliedBy(tokenPerBlock).multipliedBy(percent);
+                                        let interestRate = rewardAmt.multipliedBy(BSTPrice).div(totalLpStaking);
+                                        return interestRate.div(365).plus(1).exponentiatedBy(365).minus(1);
+                                    });
+                                });
+                            });
+                        } else {
+                            return new BigNumber(0);
+                        }
+                    });
+                });
+            } else {
+                return new BigNumber(0);
+            }
+        });
     }
 }
