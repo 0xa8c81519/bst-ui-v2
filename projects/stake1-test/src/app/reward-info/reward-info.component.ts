@@ -22,7 +22,7 @@ export class RewardInfoComponent implements OnInit {
     }
 
     allocationPercent() {
-        return this.boot.poolInfo.allocPoint.div(this.boot.poolInfo.totalAllocPoint).multipliedBy(100);
+        return this.boot.poolInfo.allocPoint.div(this.boot.poolInfo.totalAllocPoint).multipliedBy(100).div(2);
     }
 
     farmingRewardPercent() {
