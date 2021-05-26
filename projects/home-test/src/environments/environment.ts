@@ -64,16 +64,16 @@ export const environment = {
         address: '0x2552c1801d9891Fbf56Ea5Cf5AC61089a1D1c1d8'
     },
     pool3: {
-        address: '0xb16db5A5ca679ee6b9e0AcB2C22DcF04Db5F652b'
+        address: '0xf7cF1C581a415e9C84F290E2742268Fd2C15eE37'
     },
     liqudityFarmingProxy: {
-        address: '0xeaFdd54940b518FE1E9Eb90DB7c3cE3706E4D491'
+        address: '0x44A08ff464CCAEf948c7973EBa066777Df0143Ce'
     },
     bstToken: {
-        address: '0x350730f67dd98A1F1aBB3aab82c554c3769dee78'
+        address: '0x8b97Df6203E72B3B794c6A16cC6b677e8e1CE174'
     },
     paymentFarmingProxy: {
-        address: '0xAD3AC3A9F848C6d0900A09078bb93aB8474C2898'
+        address: '0x6b44BB401BC9c6EE36843b7bac2062937d5425a2'
     },
     dai: {
         address: '0xb86fCC4e6189BD298dD606d174266cA938606D09'
