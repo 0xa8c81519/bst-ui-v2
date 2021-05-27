@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 import LiquidityFarmingProxy from 'libs/abi/LiquidityFarmingProxy.json';
 import StableCoin from 'libs/abi/StableCoin.json';
 import BSTToken from 'libs/abi/BSTToken.json';
-import BStablePool from 'libs/abi/BStablePool.json';
+import BStablePool from 'libs/abi/StableSwapPool.json';
 import { AddlpSlippageConfirmComponent } from '../addlp-slippage-confirm/addlp-slippage-confirm.component';
 import { ApproveDlgComponent } from '../approve-dlg/approve-dlg.component';
 import { Balance } from '../model/balance';
@@ -141,16 +141,10 @@ export class BootService {
                 if (res && res.lpToken) {
                     this.poolAddress = res.lpToken;
                     this.poolContract = new ethers.Contract(this.poolAddress, BStablePool.abi, this.web3);
-                    let pArr = new Array();
-                    for (let i = 0; i < 3; i++) {
-                        pArr.push(this.poolContract.coins(i));
-                    }
-                    return Promise.all(pArr).then(res => {
-                        res.forEach(r => {
-                            let contract = new ethers.Contract(r, StableCoin.abi, this.web3);
-                            this.contracts.push(contract);
-                            this.contractsAddress.push(r);
-                        });
+                    this.chainConfig.contracts.coins.forEach(r => {
+                        let contract = new ethers.Contract(r, StableCoin.abi, this.web3);
+                        this.contracts.push(contract);
+                        this.contractsAddress.push(r);
                     });
                 }
             }).then(() => { // contract event listener
@@ -465,21 +459,11 @@ export class BootService {
             }
             return true;
         });
-        this.poolContract.fee({ from: this.accounts[0] }).then(feeStr => {
-            this.poolInfo.fee = new BigNumber(feeStr.toString()).div(new BigNumber(10).exponentiatedBy(10));
-        });
-        this.poolContract.admin_fee({ from: this.accounts[0] }).then(feeStr => {
-            this.poolInfo.adminFee = new BigNumber(feeStr.toString()).div(new BigNumber(10).exponentiatedBy(10));
-        });
+        this.poolInfo.fee = new BigNumber(0.003);
+        this.poolInfo.adminFee = new BigNumber(0.666666666667);
     }
 
     private loadPoolVolume() {
-        let denominator = new BigNumber(10).exponentiatedBy(18);
-        this.poolContract.volume({ from: this.accounts[0] }).then(volumeStr => {
-            this.poolInfo.volume = new BigNumber(volumeStr.toString()).div(denominator);
-        }).catch(e => {
-            console.log(e);
-        });
     }
 
     private loadPendingReward() {
@@ -656,7 +640,7 @@ export class BootService {
             console.log(e);
             throw e;
         });
-   }
+    }
 
     public exchange(i: number, j: number, amt: string, minAmt: string): Promise<any> {
         if (this.poolContract) {

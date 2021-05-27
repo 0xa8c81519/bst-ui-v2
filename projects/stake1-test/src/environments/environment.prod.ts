@@ -17,7 +17,12 @@ export const environment = {
                 proxy: {
                     address: "0x931B226EBb7134a19B970cBF74f18E40a4239178"
                 },
-                pid: 0
+                pid: 0,
+                coins: [
+                    '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3',
+                    '0xe9e7cea3dedca5984780bafc599bd69add087d56',
+                    '0x55d398326f99059ff775485246999027b3197955',
+                ]
             }
         }
     },

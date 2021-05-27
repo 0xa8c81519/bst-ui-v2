@@ -16,9 +16,14 @@ export const environment = {
             name: 'Testnet',
             contracts: {
                 proxy: {
-                    address:common.proxy.address 
+                    address: common.proxy.address
                 },
-                pid: 1
+                pid: 1,
+                coins: [
+                    '0xd7c2ba36d15bfdeaa38766c231cc940ed524530f',
+                    '0xa2157E2Ca201a157776494Cbd02723A121359794',
+                    '0xD94905fc832754Ea85bCa67C6Ab5FAa66066E12C',
+                ]
             }
         }
     },

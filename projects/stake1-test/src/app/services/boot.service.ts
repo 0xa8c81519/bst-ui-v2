@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 import LiquidityFarmingProxy from 'libs/abi/LiquidityFarmingProxy.json';
 import BEP20 from 'libs/abi/BEP20.json';
 import BSTToken from 'libs/abi/BSTToken.json';
-import BStablePool from 'libs/abi/BStablePool.json';
+import BStablePool from 'libs/abi/StableSwapPool.json';
 import BSTMinter from 'libs/abi/BSTMinter.json';
 import { ApproveDlgComponent } from '../approve-dlg/approve-dlg.component';
 import { Balance } from '../model/balance';
@@ -141,16 +141,10 @@ export class BootService {
                 if (res && res.lpToken) {
                     this.poolAddress = res.lpToken;
                     this.poolContract = new ethers.Contract(this.poolAddress, BStablePool.abi, this.web3);
-                    let pArr = new Array();
-                    for (let i = 0; i < 3; i++) {
-                        pArr.push(this.poolContract.coins(i));
-                    }
-                    return Promise.all(pArr).then(res => {
-                        res.forEach(r => {
-                            let contract = new ethers.Contract(r, BEP20.abi, this.web3);
-                            this.contracts.push(contract);
-                            this.contractsAddress.push(r);
-                        });
+                    this.chainConfig.contracts.coins.forEach(r => {
+                        let contract = new ethers.Contract(r, BEP20.abi, this.web3);
+                        this.contracts.push(contract);
+                        this.contractsAddress.push(r);
                     });
                 }
             }).then(() => { // contract event listener
@@ -471,21 +465,11 @@ export class BootService {
             }
             return true;
         });
-        this.poolContract.fee({ from: this.accounts[0] }).then(feeStr => {
-            this.poolInfo.fee = new BigNumber(feeStr.toString()).div(new BigNumber(10).exponentiatedBy(10));
-        });
-        this.poolContract.admin_fee({ from: this.accounts[0] }).then(feeStr => {
-            this.poolInfo.adminFee = new BigNumber(feeStr.toString()).div(new BigNumber(10).exponentiatedBy(10));
-        });
+        this.poolInfo.fee = new BigNumber(0.003);
+        this.poolInfo.adminFee = new BigNumber(0.6666666667);
     }
 
     private loadPoolVolume() {
-        let denominator = new BigNumber(10).exponentiatedBy(18);
-        this.poolContract.volume({ from: this.accounts[0] }).then(volumeStr => {
-            this.poolInfo.volume = new BigNumber(volumeStr.toString()).div(denominator);
-        }).catch(e => {
-            console.log(e);
-        });
     }
 
     private loadPendingReward() {
