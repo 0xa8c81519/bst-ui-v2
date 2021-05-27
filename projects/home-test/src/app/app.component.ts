@@ -27,7 +27,9 @@ export class AppComponent implements OnInit {
     ];
 
     Audited: any[] = [
+        {imgUrl: 'certik'},
         {imgUrl: 'zhidao'},
+        {imgUrl: 'lingling'},
         {imgUrl: 'anchain'}
     ];
 
