@@ -7,7 +7,7 @@ export const environment = {
     virtualPriceDiff: 0.006,
     coins: [{ symbol: 'tDAI' }, { symbol: 'tBUSD' }, { symbol: 'tUSDT' }],
     rpc: {
-        56: "'https://bsc-dataseed.binance.org/'",
+        56: "https://bsc-dataseed.binance.org/",
         97: 'https://data-seed-prebsc-1-s1.binance.org:8545/'
     },
     chains: {

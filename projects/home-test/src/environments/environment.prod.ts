@@ -2,33 +2,52 @@ export const environment = {
     production: true,
     menu: [
         {
-            text: "Pool 1",
+            text: 'Pay',
             active: false,
-            url: "/pool1",
-            target: "_self"
+            url: '/payment',
+            target: '_self'
         },
         {
-            text: "Pool 2",
+            text: 'Pool 1',
             active: false,
-            url: "/pool2",
-            target: "_self"
+            url: '/pool1',
+            target: '_self'
         },
         {
-            text: "Stake BSLP-01",
+            text: 'Pool 2',
             active: false,
-            url: "/stake1",
-            target: "_self"
+            url: '/pool2',
+            target: '_self'
         },
         {
-            text: "Stake BSLP-02",
+            text: 'Pool 3',
             active: false,
-            url: "/stake2",
-            target: "_self"
-        }, {
-            text: "Tutorial",
+            url: '/pool3',
+            target: '_self'
+        },
+        {
+            text: 'Stake BSLP-01',
             active: false,
-            url: "https://www.notion.so/bStable-Docs-5614b5e416bc409baf24a0e2e6ca9035",
-            target: "_blank"
+            url: '/stake1',
+            target: '_self'
+        },
+        {
+            text: 'Stake BSLP-02',
+            active: false,
+            url: '/stake2',
+            target: '_self'
+        },
+        {
+            text: 'Stake BSLP-03',
+            active: false,
+            url: '/stake3',
+            target: '_self'
+        },
+        {
+            text: 'Docs',
+            active: false,
+            url: 'https://docs.bstable.finance',
+            target: '_blank'
         }
     ],
     rpc: {
@@ -41,16 +60,16 @@ export const environment = {
         address: '0x27f545300f7b93c1c0184979762622db043b0805'
     },
     pool3: {
-        address: ''
+        address: '0x81b6711677783e38A575ff1CCeFDcc6F86617006'
     },
     liqudityFarmingProxy: {
-        address: ''
+        address: '0x931B226EBb7134a19B970cBF74f18E40a4239178'
     },
     bstToken: {
-        address: ''
+        address: '0x0A65141EDE51776712B91cE1B77B996aE6f089eC'
     },
     paymentFarmingProxy: {
-        address: ''
+        address: '0x830a40032FEA261E57736fce9bB6Cc04124a8459'
     },
     dai: {
         address: '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3'
