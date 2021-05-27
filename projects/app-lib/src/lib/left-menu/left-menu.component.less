@@ -34,12 +34,14 @@
         margin: 16px 0;
         display: flex;
         justify-content: flex-start;
+        flex-wrap: wrap;
 
         a {
           color: #6B7595;
           text-decoration: none;
           display: flex;
           justify-content: flex-start;
+          flex-wrap: wrap;
 
           svg {
             margin: 0 14px;
@@ -55,6 +57,10 @@
 
           .icon-2 {
             display: none;
+          }
+
+          .name-2 {
+            text-indent: 54px;
           }
         }
       }
@@ -86,6 +92,10 @@
           }
         }
 
+        .name-2 {
+          color: #fff !important;
+        }
+
         .icon-2 {
 
           display: block;
@@ -108,7 +118,7 @@
         .menu-icon {
           position: absolute;
           left: 20px;
-          bottom: 109px;
+          bottom: 83px;
           width: 15px;
           height: 15px;
           z-index: 999;
@@ -274,6 +284,16 @@
 
   }
 
+  .name-2 {
+    position: relative;
+    transition: 0.5s;
+    color: #6B7595;
+    width: 0;
+    white-space: nowrap;
+    transform: translateX(-300px);
+
+  }
+
   &.open {
     width: 245px;
 
@@ -299,6 +319,15 @@
       width: 150px;
       transition: 0.5s;
       margin-left: 10px;
+      transform: translateX(0) !important;
+    }
+
+    .name-2 {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 150px;
+      transition: 0.5s;
       transform: translateX(0) !important;
     }
 
@@ -353,15 +382,24 @@
           display: flex;
           justify-content: flex-start;
           cursor: pointer;
+          flex-wrap: wrap;
 
           a {
             color: #6B7595;
             text-decoration: none;
             display: flex;
             justify-content: flex-start;
+            flex-wrap: wrap;
 
             .name {
               font-size: 16px;
+            }
+
+            .name-2 {
+              width: 100%;
+              text-indent: 80px;
+              font-size: 11px;
+              font-family: Poppins-Regular, Poppins;
             }
 
             svg {
@@ -417,7 +455,7 @@
         .menu-top {
           .menu-icon {
             left: 35px;
-            bottom: 107px;
+            bottom: 78px;
             width: 24px;
             height: 24px;
 
@@ -519,6 +557,16 @@
       width: 0;
       white-space: nowrap;
       transform: translateX(-220px);
+    }
+
+    .name-2 {
+      font-size: 14px;
+      position: relative;
+      transition: 0.5s;
+      color: #6B7595;
+      width: 0;
+      white-space: nowrap;
+      transform: translateX(-300px);
     }
 
     .cont {
