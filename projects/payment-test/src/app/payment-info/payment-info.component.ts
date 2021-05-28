@@ -1,9 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import BigNumber from 'bignumber.js';
-import {CoinsDlgComponent} from '../coins-dlg/coins-dlg.component';
-import {BootService} from '../services/boot.service';
-import {ethers} from 'ethers';
+import { CoinsDlgComponent } from '../coins-dlg/coins-dlg.component';
+import { BootService } from '../services/boot.service';
+import { ethers } from 'ethers';
 
 export enum ApproveStatus {
     None, Approved, NoApproved
@@ -29,9 +29,9 @@ export class PaymentInfoComponent implements OnInit {
     left = 0;
     active = 1;
     slippageNumList: any = [
-        {num: 1},
-        {num: 2},
-        {num: 5}
+        { num: 1 },
+        { num: 2 },
+        { num: 5 }
     ];
 
     right = 1;
@@ -355,8 +355,14 @@ export class PaymentInfoComponent implements OnInit {
             });
             this.receiptAmt = '-';
             this.boot.getExchangeOutAmt(this.right, this.left, this.rightAmt).then(amt => {
-                this.receiptAmt = amt.toFormat(2, BigNumber.ROUND_DOWN);
-                this.insufficientLiquidity = false;
+                let inAmt = new BigNumber(this.amt);
+                let slippage = new BigNumber(1).minus(amt.div(inAmt));
+                if (slippage.comparedTo(0.1) < 0) {
+                    this.insufficientLiquidity = false;
+                } else {
+                    this.insufficientLiquidity = true;
+                }
+                this.receiptAmt = amt.toFixed(2, BigNumber.ROUND_DOWN);
             }).catch(e => {
                 this.receiptAmt = '-';
                 this.insufficientLiquidity = true;
