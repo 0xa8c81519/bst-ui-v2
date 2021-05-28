@@ -8,37 +8,37 @@ export const environment = {
             target: '_self'
         },
         {
-            text: 'Pool 1',
+            text: 'Pool 1 DAI / BUSD / USDT',
             active: false,
             url: '/pool1',
             target: '_self'
         },
         {
-            text: 'Pool 2',
+            text: 'Pool 2 QUSD / BUSD / USDT',
             active: false,
             url: '/pool2',
             target: '_self'
         },
         {
-            text: 'Pool 3',
+            text: 'Pool 3 USDC / BUSD / USDT',
             active: false,
             url: '/pool3',
             target: '_self'
         },
         {
-            text: 'Stake BSLP-01',
+            text: 'Stake BSLP-01 DAI / BUSD / USDT',
             active: false,
             url: '/stake1',
             target: '_self'
         },
         {
-            text: 'Stake BSLP-02',
+            text: 'Stake BSLP-02 QUSD / BUSD / USDT',
             active: false,
             url: '/stake2',
             target: '_self'
         },
         {
-            text: 'Stake BSLP-03',
+            text: 'Stake BSLP-03 USDC / BUSD / USDT',
             active: false,
             url: '/stake3',
             target: '_self'
