@@ -1054,6 +1054,8 @@ export class BootService {
                 if (d === '') {
                     d = timeStr;
                     v = new BigNumber(e.liquidity).div(new BigNumber(10).exponentiatedBy(18));
+                    let obj = { time: d, value: v.toFixed(4) };
+                    arrLp.push(obj);
                 } else {
                     if (d === timeStr) {
                         v.plus(new BigNumber(e.liquidity).div(new BigNumber(10).exponentiatedBy(18)));
@@ -1065,6 +1067,8 @@ export class BootService {
                     }
                 }
             });
+            let obj = { time: d, value: v.toFixed(4) };
+            arrLp.push(obj);
             arrLp.reverse();
             return { volume: arr, liquidity: arrLp };
         });

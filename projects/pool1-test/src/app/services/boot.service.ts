@@ -1029,6 +1029,8 @@ export class BootService {
                     }
                 }
             });
+            let obj = { time: d, value: v.toFixed(4) };
+            arr.push(obj);
             arr.reverse();
             d = '';
             v = new BigNumber(0);
