@@ -136,7 +136,7 @@ export class StakeCompComponent implements OnInit {
     }
 
     depositLP() {
-        if (this.needApproveLP || (this.loadStatus !== 0 && this.loadStatus !== 2)) {
+        if (this.needApproveLP || (this.loadStatus !== 0 && this.loadStatus !== 2) || this.depositLPAmt.comparedTo(0) == 0) {
             return;
         }
         this.loading.emit();
@@ -159,7 +159,7 @@ export class StakeCompComponent implements OnInit {
     }
 
     withdrawLP() {
-        if (this.loadStatus !== 0 && this.loadStatus !== 2) {
+        if ((this.loadStatus !== 0 && this.loadStatus !== 2) || this.withdrawLPAmt.comparedTo(0) === 0) {
             return;
         }
         this.loading.emit();

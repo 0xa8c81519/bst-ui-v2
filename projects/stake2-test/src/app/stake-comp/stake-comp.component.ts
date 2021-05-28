@@ -136,7 +136,7 @@ export class StakeCompComponent implements OnInit {
     }
 
     depositLP() {
-        if (this.needApproveLP || (this.loadStatus !== 0 && this.loadStatus !== 2)) {
+        if (this.needApproveLP || (this.loadStatus !== 0 && this.loadStatus !== 2) || this.depositLPAmt.comparedTo(0) == 0) {
             return;
         }
         this.loading.emit();
@@ -159,7 +159,7 @@ export class StakeCompComponent implements OnInit {
     }
 
     withdrawLP() {
-        if (this.loadStatus !== 0 && this.loadStatus !== 2) {
+        if ((this.loadStatus !== 0 && this.loadStatus !== 2) || this.withdrawLPAmt.comparedTo(0) === 0) {
             return;
         }
         this.loading.emit();
@@ -202,10 +202,12 @@ export class StakeCompComponent implements OnInit {
         const invalidChars = ['-', '+', 'e', 'E'];
         if (invalidChars.indexOf(e.key) !== -1) {
             e.preventDefault();
+            return;
         } else {
             const reg = /^\d*(?:[.,]\d{1,3})?$/;
             if (!reg.test(e.target.value)) {
                 e.preventDefault();
+            return;
             }
         }
     }
