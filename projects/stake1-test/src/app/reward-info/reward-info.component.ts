@@ -62,7 +62,8 @@ export class RewardInfoComponent implements OnInit {
             let accTokenPerShare = new BigNumber(pooInfo.accTokenPerShare.toString()).div(new BigNumber(10).exponentiatedBy(12));
             return accTokenPerShare;
         }).then(accTokenPerShare => {
-            return accTokenPerShare.multipliedBy(BSTPrice).div(365).plus(1).exponentiatedBy(365).minus(1);
+            let apy = accTokenPerShare.multipliedBy(BSTPrice).div(365).plus(1).exponentiatedBy(365).minus(1);
+            return apy.comparedTo(30) > 0 ? new BigNumber(0) : apy;
         });
     }
 }

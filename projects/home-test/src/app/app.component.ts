@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {LanguageService} from 'app-lib';
-import {BigNumber} from 'bignumber.js';
-import {environment} from '../environments/environment';
-import {BootService} from './services/boot.service';
+import { Component, OnInit } from '@angular/core';
+import { LanguageService } from 'app-lib';
+import { BigNumber } from 'bignumber.js';
+import { environment } from '../environments/environment';
+import { BootService } from './services/boot.service';
 
 @Component({
     selector: 'app-root',
@@ -16,8 +16,8 @@ export class AppComponent implements OnInit {
     menu = environment.menu;
 
     itemListBoxOne: any[] = [
-        {imgUrl: '1', name: 'Payment Mining', tip: 'Pay in your choice of currency', tip1: 'Get paid to pay with Payment Mining'},
-        {imgUrl: '2', name: 'Stablecoin Swaps', tip: 'Low Fees', tip1: 'Minimum Slippage', tip2: 'Low Risk'},
+        { imgUrl: '1', name: 'Payment Mining', tip: 'Pay in your choice of currency', tip1: 'Get paid to pay with Payment Mining' },
+        { imgUrl: '2', name: 'Stablecoin Swaps', tip: 'Low Fees', tip1: 'Minimum Slippage', tip2: 'Low Risk' },
         {
             imgUrl: '3',
             name: 'Liquidity Mining',
@@ -27,34 +27,34 @@ export class AppComponent implements OnInit {
     ];
 
     Audited: any[] = [
-        {imgUrl: 'certik'},
-        {imgUrl: 'zhidao'},
-        {imgUrl: 'lingling'},
-        {imgUrl: 'anchain'}
+        { imgUrl: 'certik' },
+        { imgUrl: 'zhidao' },
+        { imgUrl: 'lingling' },
+        { imgUrl: 'anchain' }
     ];
 
     Strategic: any[] = [
-        {imgUrl: 'zhidao'},
-        {imgUrl: 'anchain'},
-        {imgUrl: 'zhidao'},
-        {imgUrl: 'zhidao'},
-        {imgUrl: 'anchain'},
-        {imgUrl: 'zhidao'}
+        { imgUrl: 'zhidao' },
+        { imgUrl: 'anchain' },
+        { imgUrl: 'zhidao' },
+        { imgUrl: 'zhidao' },
+        { imgUrl: 'anchain' },
+        { imgUrl: 'zhidao' }
     ];
 
     Partners: any[] = [
-        {imgUrl: 'zhidao'},
-        {imgUrl: 'anchain'},
-        {imgUrl: 'zhidao'},
-        {imgUrl: 'zhidao'},
-        {imgUrl: 'anchain'},
-        {imgUrl: 'zhidao'},
-        {imgUrl: 'zhidao'},
-        {imgUrl: 'anchain'},
-        {imgUrl: 'zhidao'},
-        {imgUrl: 'zhidao'},
-        {imgUrl: 'anchain'},
-        {imgUrl: 'zhidao'}
+        { imgUrl: 'zhidao' },
+        { imgUrl: 'anchain' },
+        { imgUrl: 'zhidao' },
+        { imgUrl: 'zhidao' },
+        { imgUrl: 'anchain' },
+        { imgUrl: 'zhidao' },
+        { imgUrl: 'zhidao' },
+        { imgUrl: 'anchain' },
+        { imgUrl: 'zhidao' },
+        { imgUrl: 'zhidao' },
+        { imgUrl: 'anchain' },
+        { imgUrl: 'zhidao' }
     ];
 
     amount = 0;
@@ -90,7 +90,7 @@ export class AppComponent implements OnInit {
         arr.push(this.boot.getUnclaimedBST());
         Promise.all(arr).then(res => {
             let amount = res[0].toFixed(2, BigNumber.ROUND_DOWN);
-            let amount2 = res[1].toFixed(2, BigNumber.ROUND_DOWN);
+            let amount2 = res[1].minus(10000000).toFixed(2, BigNumber.ROUND_DOWN);
             let amount3 = res[2].toFixed(2, BigNumber.ROUND_DOWN);
             this.numberChange1(80, 10, 0, amount);
             this.numberChange2(80, 10, 0, amount2);
@@ -162,7 +162,7 @@ export class AppComponent implements OnInit {
 
         let _this = this;
         // 定时显示
-        let intervalId = setInterval(function() {
+        let intervalId = setInterval(function () {
 
             if (_index < splitArr.length) {
                 _this.amount = (splitArr[_index++]);
@@ -217,7 +217,7 @@ export class AppComponent implements OnInit {
 
         let _this = this;
         // 定时显示
-        let intervalId = setInterval(function() {
+        let intervalId = setInterval(function () {
 
             if (_index < splitArr.length) {
                 _this.amount2 = (splitArr[_index++]);
@@ -272,7 +272,7 @@ export class AppComponent implements OnInit {
 
         let _this = this;
         // 定时显示
-        let intervalId = setInterval(function() {
+        let intervalId = setInterval(function () {
 
             if (_index < splitArr.length) {
                 _this.amount3 = (splitArr[_index++]);
