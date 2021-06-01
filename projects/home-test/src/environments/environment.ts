@@ -12,13 +12,13 @@ export const environment = {
             target: '_self'
         },
         {
-            text: 'Pool 1 DAI / BUSD / USDT',
+            text: 'Pool  DAI / BUSD / USDT',
             active: false,
             url: '/pool1',
             target: '_self'
         },
         {
-            text: 'Pool 2 USDC / BUSD / USDT',
+            text: 'Pool  USDC / BUSD / USDT',
             active: false,
             url: '/pool3',
             target: '_self'
