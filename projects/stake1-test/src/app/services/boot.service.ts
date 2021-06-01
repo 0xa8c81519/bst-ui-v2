@@ -476,7 +476,8 @@ export class BootService {
         let denominator = new BigNumber(10).exponentiatedBy(18);
         this.proxyContract.pendingReward(this.chainConfig.contracts.pid, this.accounts[0], { from: this.accounts[0] }).then(pending => {
             if (pending) {
-                this.balance.pendingToken = new BigNumber(pending.toString()).div(denominator);
+                let bnPending = new BigNumber(pending.toString());
+                this.balance.pendingToken = bnPending.comparedTo(0) > 0 ? bnPending.div(denominator) : this.balance.pendingToken;
             }
         }).catch(e => {
             console.log(e);
