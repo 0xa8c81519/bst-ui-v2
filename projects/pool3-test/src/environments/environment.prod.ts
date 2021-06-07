@@ -17,7 +17,7 @@ export const environment = {
                 proxy: {
                     address: "0x931B226EBb7134a19B970cBF74f18E40a4239178"
                 },
-                pid: 2
+                pid: 1
             }
         },
     },

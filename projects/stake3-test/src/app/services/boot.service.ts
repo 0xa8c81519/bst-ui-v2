@@ -437,7 +437,7 @@ export class BootService {
 
     private loadConstData() {
         let denominator = new BigNumber(10).exponentiatedBy(18);
-        this.proxyContract.totalAllocPoint().then(points => {
+        this.minterContract.totalAllocPoint().then(points => {
             if (points) {
                 this.poolInfo.totalAllocPoint = new BigNumber(points.toString()).div(denominator);
             }
@@ -450,10 +450,13 @@ export class BootService {
         this.minterContract.tokenPerBlock().then(res => {
             this.poolInfo.tokenPerBlock = new BigNumber(res.toString()).div(denominator);
         });
-        this.proxyContract.poolInfo(this.chainConfig.contracts.pid).then(res => {
+        this.minterContract.poolInfo(this.proxyContract.address, this.poolAddress).then(res => {
             if (res && res.allocPoint) {
                 this.poolInfo.allocPoint = new BigNumber(res.allocPoint.toString()).div(denominator);
             }
+        });
+        this.proxyContract.poolInfo(this.chainConfig.contracts.pid).then(res => {
+
             if (res && res.accTokenPerShare) {
                 this.poolInfo.accTokenPerShare = new BigNumber(res.accTokenPerShare.toString()).div(denominator);
             }

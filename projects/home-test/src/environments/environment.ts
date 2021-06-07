@@ -55,13 +55,13 @@ export const environment = {
         address: '0xf7cF1C581a415e9C84F290E2742268Fd2C15eE37'
     },
     liqudityFarmingProxy: {
-        address: '0x44A08ff464CCAEf948c7973EBa066777Df0143Ce'
+        address: '0xCcEDA287905Ec3F8fCab683894663D08be74FA00'
     },
     bstToken: {
-        address: '0x8b97Df6203E72B3B794c6A16cC6b677e8e1CE174'
+        address: '0x7373C85338c2A0AA91c0A84536B2bee8606aE6AA'
     },
     paymentFarmingProxy: {
-        address: '0x6b44BB401BC9c6EE36843b7bac2062937d5425a2'
+        address: '0xDb37BfCF7f90Da30eDF8D5b2C727a7d5b705ed78'
     },
     dai: {
         address: '0xb86fCC4e6189BD298dD606d174266cA938606D09'

@@ -11,6 +11,7 @@ import LiquidityFarmingProxy from 'libs/abi/LiquidityFarmingProxy.json';
 import StableCoin from 'libs/abi/StableCoin.json';
 import BSTToken from 'libs/abi/BSTToken.json';
 import BStablePool from 'libs/abi/BStablePool.json';
+import BSTMinter from 'libs/abi/BSTMinter.json';
 import { AddlpSlippageConfirmComponent } from '../addlp-slippage-confirm/addlp-slippage-confirm.component';
 import { ApproveDlgComponent } from '../approve-dlg/approve-dlg.component';
 import { Balance } from '../model/balance';
@@ -65,6 +66,8 @@ export class BootService {
 
     contracts: Array<ethers.Contract> = new Array();
     contractsAddress: Array<string> = new Array();
+
+    minterContract: ethers.Contract;
 
     chainConfig: any;
     unSupportedNetworkSubject: Subject<any> = new Subject();
@@ -135,6 +138,9 @@ export class BootService {
         return this.proxyContract.getTokenAddress().then(tokenAddress => {
             if (tokenAddress) {
                 this.tokenContract = new ethers.Contract(tokenAddress, BSTToken.abi, this.web3);
+                this.tokenContract.minter().then(minterAddress => {
+                    this.minterContract = new ethers.Contract(minterAddress, BSTMinter.abi, this.web3);
+                });
             }
             return this.proxyContract.poolInfo(this.chainConfig.contracts.pid).then((res) => {
                 this.contracts.splice(0, this.contracts.length);
@@ -437,7 +443,7 @@ export class BootService {
 
     private loadConstData() {
         let denominator = new BigNumber(10).exponentiatedBy(18);
-        this.proxyContract.totalAllocPoint().then(points => {
+        this.minterContract.totalAllocPoint().then(points => {
             if (points) {
                 this.poolInfo.totalAllocPoint = new BigNumber(points.toString()).div(denominator);
             }
