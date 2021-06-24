@@ -1,0 +1,34 @@
+<section>
+	<input *ngIf="!boot.accounts||boot.accounts.length===0" type="button" value="Connect MetaMask"
+		(click)="boot.connentMetaMask()">
+	<p *ngIf="boot.accounts&&boot.accounts.length>0">
+		<label>当前钱包地址：</label><span>{{boot.accounts[0]}}</span>
+	</p>
+</section>
+<section *ngIf="boot.isAdmin()">
+	<h1>支付收入:{{getTotalPaymentFeeIncome()}} U</h1>
+	<p>
+		<label>支付手续费USDC: </label><span>{{boot.formatEther(boot.paymentFeeIncomeUsdc)}} USDC</span>
+	</p>
+	<p>
+		<label>支付手续费BUSD: </label><span>{{boot.formatEther(boot.paymentFeeIncomeBusd)}} BUSD</span>
+	</p>
+	<p>
+		<label>支付手续费USDT: </label><span>{{boot.formatEther(boot.paymentFeeIncomeUsdt)}} USDT</span>
+	</p>
+</section>
+<section *ngIf="boot.isAdmin()">
+	<h1>流动性池收入:{{getTotalAdminFeeIncome()}} U</h1>
+	<p>
+		<label>手续费USDC: </label><span>{{boot.formatEther(boot.adminFeeIncomeUsdc)}} USDC</span>
+	</p>
+	<p>
+		<label>手续费BUSD: </label><span>{{boot.formatEther(boot.adminFeeIncomeBusd)}} BUSD</span>
+	</p>
+	<p>
+		<label>手续费USDT: </label><span>{{boot.formatEther(boot.adminFeeIncomeUsdt)}} USDT</span>
+	</p>
+</section>
+<section *ngIf="boot.isAdmin()">
+	<h1>总收入:{{getTotalIncome()}} U</h1>
+</section>

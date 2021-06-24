@@ -1220,6 +1220,127 @@
                     }
                 }
             }
+        },
+        "refund": {
+            "projectType": "application",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "less"
+                }
+            },
+            "root": "projects/refund",
+            "sourceRoot": "projects/refund/src",
+            "prefix": "app",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/refund",
+                        "index": "projects/refund/src/index.html",
+                        "main": "projects/refund/src/main.ts",
+                        "polyfills": "projects/refund/src/polyfills.ts",
+                        "tsConfig": "projects/refund/tsconfig.app.json",
+                        "aot": true,
+                        "assets": [
+                            "projects/refund/src/favicon.ico",
+                            "projects/refund/src/assets"
+                        ],
+                        "styles": [
+                            "projects/refund/src/styles.less"
+                        ],
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "projects/refund/src/environments/environment.ts",
+                                    "with": "projects/refund/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "refund:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "refund:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "refund:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "projects/refund/src/test.ts",
+                        "polyfills": "projects/refund/src/polyfills.ts",
+                        "tsConfig": "projects/refund/tsconfig.spec.json",
+                        "karmaConfig": "projects/refund/karma.conf.js",
+                        "assets": [
+                            "projects/refund/src/favicon.ico",
+                            "projects/refund/src/assets"
+                        ],
+                        "styles": [
+                            "projects/refund/src/styles.less"
+                        ],
+                        "scripts": []
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "projects/refund/tsconfig.app.json",
+                            "projects/refund/tsconfig.spec.json",
+                            "projects/refund/e2e/tsconfig.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                },
+                "e2e": {
+                    "builder": "@angular-devkit/build-angular:protractor",
+                    "options": {
+                        "protractorConfig": "projects/refund/e2e/protractor.conf.js",
+                        "devServerTarget": "refund:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "refund:serve:production"
+                        }
+                    }
+                }
+            }
         }
     },
     "defaultProject": "pool1-test",
