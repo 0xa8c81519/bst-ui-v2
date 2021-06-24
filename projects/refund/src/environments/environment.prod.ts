@@ -1,29 +1,33 @@
 export const environment = {
 	production: true,
-	poolId: "p1",
-	liquiditySymbol: "BSLP-01",
-	tokenSymbol: "BST",
-	virtualPriceDiff: 0.006,
-	coins: [{ symbol: 'DAI' }, { symbol: 'BUSD' }, { symbol: 'USDT' }],
-	rpc: {
-		url: "https://bsc-dataseed.binance.org/",
-	},
-	chains: {
-		56: {
-			enabled: true,
-			name: 'Mainnet',
-			contracts: {
-				proxy: {
-					address: "0x931B226EBb7134a19B970cBF74f18E40a4239178"
-				},
-				pid: 0,
-				coins: [
-					'0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3',
-					'0xe9e7cea3dedca5984780bafc599bd69add087d56',
-					'0x55d398326f99059ff775485246999027b3197955',
-				]
-			}
+	mainnet: {
+		networkId: 56,
+		rpc: {
+			url: "https://bsc-dataseed.binance.org/",
 		},
+		payment: {
+			address: '0x830a40032FEA261E57736fce9bB6Cc04124a8459',
+		},
+		pool: {
+			address: '0x81b6711677783e38A575ff1CCeFDcc6F86617006',
+		},
+		busd: {
+			address: '0xe9e7cea3dedca5984780bafc599bd69add087d56'
+		},
+		usdt: {
+			address: '0x55d398326f99059ff775485246999027b3197955'
+		},
+		usdc: {
+			address: '0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d'
+		}
 	},
-	subgraphApi: "https://api.thegraph.com/subgraphs/name/0xa8c81519/my-subgraph"
+	deployer: {
+		address: '0xb0cef4066a297656ffe722b5a0defcf7d23d528e',
+	},
+	admin: {
+		address: '0x00000000001',
+	},
+	poolOwner: {
+		address: '0xb0d88027f5ded975ff6df7a62952033d67df277f',
+	}
 };

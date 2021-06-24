@@ -1,0 +1,1 @@
+ng b --project=refund --base-href=/refund/ --outputPath=dist/refund-prod --aot --prod 
