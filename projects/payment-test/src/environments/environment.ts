@@ -8,7 +8,7 @@ export const environment = {
     coins: [{ symbol: 'tUSDC' }, { symbol: 'tBUSD' }, { symbol: 'tUSDT' }],
     rpc: {
         56: 'https://bsc-dataseed.binance.org/',
-        97: 'https://data-seed-prebsc-1-s1.binance.org:8545/'
+        97: 'https://data-seed-prebsc-2-s1.binance.org:8545/'
     },
     chains: {
         97: {
@@ -20,7 +20,16 @@ export const environment = {
                 },
                 payment: {
                     address: common.payment.address
-                }
+                },
+				usdc:{
+					address:common.usdc.address
+				},
+				busd:{
+					address:common.busd.address
+				},
+				usdt:{
+					address:common.usdt.address
+				}
             }
         },
     },

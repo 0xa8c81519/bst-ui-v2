@@ -53,7 +53,7 @@
         <p>{{"Estimated Receipt Amount" | translate}}：{{receiptAmt}}</p>
         <p *ngIf="!isOtherCurrency">{{"Estimated Gas Fee"| translate}}：{{gasFee}}</p>
     </div>
-    <div class="toBottom" [ngClass]="{toBottomActive:isOtherCurrency}" (click)="otherCurrency()">
+    <!-- <div class="toBottom" [ngClass]="{toBottomActive:isOtherCurrency}" (click)="otherCurrency()">
         <span>
             {{"Payment in other currencies" | translate}}
             <span class="tips-box">
@@ -86,7 +86,7 @@
                         d="M512 64c247.392 0 448 200.608 448 448s-200.608 448-448 448S64 759.392 64 512 264.608 64 512 64z m187.008 289.024h-46.912a31.84 31.84 0 0 0-25.92 13.28l-157.184 218.016-71.2-98.816a32 32 0 0 0-25.92-13.28h-46.88a8 8 0 0 0-6.496 12.704l124.608 172.8a31.808 31.808 0 0 0 51.712 0l210.56-292a7.968 7.968 0 0 0-6.4-12.704z"
                         fill="#505059" p-id="1926"></path>
             </svg></span>
-    </div>
+    </div> -->
     <ng-container *ngIf="isOtherCurrency">
         <div class="box-cont">
             <div class="left">

@@ -12,30 +12,6 @@ export const environment = {
             target: '_self'
         },
         {
-            text: 'Pool  DAI / BUSD / USDT',
-            active: false,
-            url: '/pool1',
-            target: '_self'
-        },
-        {
-            text: 'Pool  USDC / BUSD / USDT',
-            active: false,
-            url: '/pool3',
-            target: '_self'
-        },
-        {
-            text: 'Stake LP DAI / BUSD / USDT',
-            active: false,
-            url: '/stake1',
-            target: '_self'
-        },
-        {
-            text: 'Stake LP USDC / BUSD / USDT',
-            active: false,
-            url: '/stake3',
-            target: '_self'
-        },
-        {
             text: 'Docs',
             active: false,
             url: 'https://docs.bstable.finance',
