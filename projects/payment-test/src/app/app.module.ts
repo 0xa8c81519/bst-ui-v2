@@ -25,6 +25,7 @@ import {CoinsDlgComponent} from './coins-dlg/coins-dlg.component';
 import {CoinItemComponent} from './coin-item/coin-item.component';
 import { DialogTipComponent } from './dialog-tip/dialog-tip.component';
 import { GetPaidToPayComponent } from './get-paid-to-pay/get-paid-to-pay.component';
+import { ClaimTipComponent } from './claim-tip/claim-tip.component';
 
 @NgModule({
     declarations: [
@@ -41,6 +42,7 @@ import { GetPaidToPayComponent } from './get-paid-to-pay/get-paid-to-pay.compone
         CoinItemComponent,
         DialogTipComponent,
         GetPaidToPayComponent,
+        ClaimTipComponent,
     ],
     imports: [
         BrowserModule,

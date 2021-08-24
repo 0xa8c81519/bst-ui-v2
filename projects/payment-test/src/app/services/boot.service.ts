@@ -69,6 +69,8 @@ export class BootService {
 
 	public denominator = new BigNumber(10).exponentiatedBy(18);
 
+	paymentDone = new Subject();
+
 
 	constructor(private dialog: MatDialog, private applicationRef: ApplicationRef, private localStorage: LocalStorageService, private http: HttpClient) {
 		environment.coins.forEach(e => {
@@ -106,6 +108,12 @@ export class BootService {
 
 	private initContracts(): Promise<any> {
 		this.paymentContract = new ethers.Contract(this.chainConfig.contracts.payment.address, PaymentFarmingProxy.abi, this.web3);
+		let payEvent = this.paymentContract.filters.Pay(null, null, null, null);
+		this.paymentContract.on(payEvent, (payToken, receiptToken, payer, receipt) => {
+			this.loadData().then(res => {
+				this.paymentDone.next();
+			});
+		});
 		return this.paymentContract.token().then(add => {
 			this.bstContract = new ethers.Contract(add, BEP20.abi, this.web3);
 			let bstTransferIn = this.bstContract.filters.Transfer(null, this.accounts[0], null);
