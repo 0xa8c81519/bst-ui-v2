@@ -656,11 +656,12 @@
         .nav-top-font-bottom {
             font-size: 17px;
             line-height: 25px;
+			width: 300px;
 
             .sub-title {
                 width: 259px;
                 height: 74px;
-                font-size: 30px;
+                font-size: 18px;
                 font-family: Poppins-Medium, Poppins;
                 font-weight: 500;
                 color: #B1B9DB;
@@ -669,7 +670,7 @@
             }
 
             .under-sub {
-                width: 375px;
+                width: 160px;
                 height: 1px;
                 background: #61FF8F;
                 margin: -1px auto 0 auto;

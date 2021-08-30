@@ -99,7 +99,7 @@
 	"All-in-one": "⼀站式",
 	"Decentralized Finance": "去中心化⾦融",
 	"Total Value Locked": "总流动性质押",
-	"Minted": "当前挖矿产出",
+	"Minted": "总量",
 	"Unclaimed BST Rewards": "BST 待奖励数量",
 	"Payment Mining": "⽀付挖矿",
 	"Pay in your choice of currency": "⽤任意稳定币⽀付",
@@ -134,5 +134,6 @@
 	"Pending Rewards": "领取奖励",
 	"Coming Soon": "",
 	"payment_claim_tip": "提示：建议您尽快提取支付奖励。您的奖励余额可能会随着参与用户多而减少。",
-	"Try Now": "马上试用"
+	"Try Now": "马上试用",
+	"Payment App":"应用"
 }
