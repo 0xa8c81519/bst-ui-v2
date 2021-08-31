@@ -97,12 +97,23 @@
         .sub-title {
             width: 259px;
             height: 74px;
-            font-size: 30px;
-            font-family: Poppins-Medium, Poppins;
-            font-weight: 500;
-            color: #B1B9DB;
+
             line-height: 83px;
             margin: 0 auto;
+
+            a {
+                font-size: 26px;
+                font-family: Poppins-Medium, Poppins;
+                font-weight: 500;
+                color: #B1B9DB;
+            }
+
+            a:link {
+                text-decoration: none;
+            }
+			a:hover{
+				color: #ffffff;
+			}
         }
 
         .under-sub {
@@ -187,7 +198,6 @@
                 align-items: center;
                 padding: 26px 40px;
                 box-sizing: border-box;
-                margin-right: 60px;
                 font-family: Poppins-Regular, Poppins;
 
                 >div {
@@ -250,7 +260,7 @@
             border: 1px solid transparent;
             display: flex;
             flex-direction: row;
-            justify-content: center;
+            justify-content: space-evenly;
 
             .one-box {
                 padding-top: 25px;
@@ -276,7 +286,7 @@
 
                     .henggang {
                         width: 6px;
-                        height: 40px;
+                        height: 26px;
                         background: #367EFF;
                         margin-right: 8px;
                     }
@@ -656,17 +666,24 @@
         .nav-top-font-bottom {
             font-size: 17px;
             line-height: 25px;
-			width: 300px;
+            width: 300px;
 
             .sub-title {
                 width: 259px;
                 height: 74px;
-                font-size: 18px;
-                font-family: Poppins-Medium, Poppins;
-                font-weight: 500;
-                color: #B1B9DB;
                 line-height: 83px;
                 margin: 0 auto;
+
+                a {
+                    font-size: 18px;
+                    font-family: Poppins-Medium, Poppins;
+                    font-weight: 500;
+                    color: #B1B9DB;
+                }
+
+                a:link {
+                    text-decoration: none;
+                }
             }
 
             .under-sub {
@@ -783,8 +800,8 @@
             .big-box {
                 min-height: 550px;
                 margin-bottom: 10px;
-				display: flex;
-				flex-direction: column;
+                display: flex;
+                flex-direction: column;
 
                 .one-box {
                     padding-top: 25px;
@@ -802,7 +819,7 @@
                     display: flex;
                     flex-direction: column;
                     // justify-content: center;
-					align-items: center;
+                    align-items: center;
 
                     .p1 {
                         display: flex;
