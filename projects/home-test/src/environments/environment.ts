@@ -37,7 +37,7 @@ export const environment = {
         address: '0x49adb9c60D25561D9Cd56a0DdEf6639d2E440FC5'
     },
     paymentFarmingProxy: {
-        address: '0xfff303A31F368759e34Cb4314DDB07459Ef0C437'
+        address: '0xc900501d00cf95B3Def679D6452B4515E80554e4'
     },
     dai: {
         address: '0xb86fCC4e6189BD298dD606d174266cA938606D09'

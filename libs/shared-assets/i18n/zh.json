@@ -135,5 +135,7 @@
 	"Coming Soon": "",
 	"payment_claim_tip": "提示：建议您尽快提取支付奖励。您的奖励余额可能会随着参与用户多而减少。",
 	"Try Now": "马上试用",
-	"Payment App":"应用"
+	"Payment App": "应用",
+	"Total Payment": "总支付量",
+	"Total Payment In 24h": "24小时支付量"
 }
