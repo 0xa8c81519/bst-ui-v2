@@ -88,14 +88,14 @@
     }
 
     .nav-top-font-bottom {
-        width: 391px;
+        // width: 800px;
         height: 74px;
         border-radius: 16px;
-        border: 1px solid #2D3244;
+        // border: 1px solid #2D3244;
         margin: 0 auto;
 
         .sub-title {
-            width: 259px;
+            // width: 259px;
             height: 74px;
 
             line-height: 83px;
@@ -111,13 +111,14 @@
             a:link {
                 text-decoration: none;
             }
-			a:hover{
-				color: #ffffff;
-			}
+
+            a:hover {
+                color: #ffffff;
+            }
         }
 
         .under-sub {
-            width: 375px;
+            width: 500px;
             height: 1px;
             background: #61FF8F;
             margin: -1px auto 0 auto;
@@ -654,7 +655,7 @@
     }
 
     .nav-top {
-        height: 350px;
+        height: 250px;
         padding-top: 70px;
 
         .nav-top-font-top {
@@ -667,11 +668,12 @@
             font-size: 17px;
             line-height: 25px;
             width: 300px;
+            height: 55px;
 
             .sub-title {
-                width: 259px;
-                height: 74px;
-                line-height: 83px;
+                // width: 259px;
+                height: 100%;
+                line-height: 25px;
                 margin: 0 auto;
 
                 a {
@@ -702,7 +704,7 @@
             width: 90%;
             top: -30px;
             padding: 20px;
-            height: 190px;
+            height: 308px;
 
             .TotalValueLocked {
                 justify-content: space-around;
@@ -792,6 +794,7 @@
 
     .tree-box {
         margin-bottom: 27px;
+		margin-top: 160px;
 
         .tree-content-box {
             width: auto;

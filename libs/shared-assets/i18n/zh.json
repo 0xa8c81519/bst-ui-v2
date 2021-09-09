@@ -101,7 +101,8 @@
 	"Total Value Locked": "总流动性质押",
 	"Minted": "总量",
 	"Unclaimed BST Rewards": "BST 待奖励数量",
-	"Payment Mining": "⽀付挖矿",
+	"Pay to Earn": "⽀付挖矿",
+	"Payment Mining": "⽀付即挖矿",
 	"Pay in your choice of currency": "⽤任意稳定币⽀付",
 	"Get paid to pay with Payment Mining": "每笔可获得奖励",
 	"Stablecoin Swaps": "稳定币兑换",
@@ -137,5 +138,6 @@
 	"Try Now": "马上试用",
 	"Payment App": "应用",
 	"Total Payment": "总支付量",
-	"Total Payment In 24h": "24小时支付量"
+	"Payment In 24h": "24小时支付量",
+	"Pay to Earn. Get Paid for Every Payment.":"Pay to Earn，支付即奖励BST。"
 }
